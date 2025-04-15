@@ -1,4 +1,4 @@
-# 🛍️ Customer Segmentation Analysis Web Application
+# 🛍️ imbalanced_personal_bank_loan_classification
 
 ## 📌 Overview
 
