@@ -13,7 +13,7 @@ The goal is to help the bank identify customers who are more likely to take a lo
 
 ### Demo Video
 
-[![Watch the demo video](image.png)](https://www.youtube.com/watch?v=b9L0cvo7Nws)
+[![Watch the demo video](image.png)](https://www.youtube.com/watch?v=U1IqMM5a2Jc)
 
 # 📊 Exploring and Preprocessing Data
 
