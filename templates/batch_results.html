@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batch Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Batch Prediction Results</h1>
+        <div class="alert alert-info">
+            Processed {{ num_customers }} customers. Here's a sample of the results:
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Age</th>
+                            <th>Income</th>
+                            <th>Family</th>
+                            <th>Education</th>
+                            <th>Prediction</th>
+                            <th>Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in sample_results %}
+                        <tr>
+                            <td>{{ result.Age }}</td>
+                            <td>{{ result.Income }}</td>
+                            <td>{{ result.Family }}</td>
+                            <td>
+                                {% if result.Education == 1 %}Undergrad
+                                {% elif result.Education == 2 %}Grad
+                                {% else %}Advanced{% endif %}
+                            </td>
+                            <td>
+                                {% if result.Prediction == 1 %}
+                                    <span class="badge badge-success">Accept</span>
+                                {% else %}
+                                    <span class="badge badge-warning">Decline</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ "%.2f"|format(result.Probability * 100) }}%</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5>Download Full Results</h5>
+                <p>The complete results file contains all input data plus prediction columns.</p>
+                <a href="{{ url_for('download', filename=results_file) }}" class="btn btn-primary">Download Results</a>
+                <a href="{{ url_for('batch_predict') }}" class="btn btn-secondary">New Batch Prediction</a>
+                <a href="{{ url_for('home') }}" class="btn btn-light">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Prediction Result</h1>
+        <div class="card">
+            <div class="card-body">
+                {% if prediction == 1 %}
+                    <div class="alert alert-success">
+                        <h4 class="alert-heading">Prediction: Likely to Accept</h4>
+                        <p>Probability: {{ probability }}</p>
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning">
+                        <h4 class="alert-heading">Prediction: Unlikely to Accept</h4>
+                        <p>Probability: {{ probability }}</p>
+                    </div>
+                {% endif %}
+                
+                <h4 class="mt-4">Customer Details:</h4>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr><th>Age</th><td>{{ input_data.Age }}</td></tr>
+                        <tr><th>Experience</th><td>{{ input_data.Experience }}</td></tr>
+                        <tr><th>Income ($000)</th><td>{{ input_data.Income }}</td></tr>
+                        <tr><th>ZIP Code</th><td>{{ input_data['ZIP Code'] }}</td></tr>
+                        <tr><th>Family Size</th><td>{{ input_data.Family }}</td></tr>
+                        <tr><th>Monthly CC Spending ($000)</th><td>{{ input_data.CCAvg }}</td></tr>
+                        <tr><th>Education Level</th>
+                            <td>
+                                {% if input_data.Education == 1 %}Undergraduate
+                                {% elif input_data.Education == 2 %}Graduate
+                                {% else %}Advanced/Professional{% endif %}
+                            </td>
+                        </tr>
+                        <tr><th>Mortgage Value ($000)</th><td>{{ input_data.Mortgage }}</td></tr>
+                        <tr><th>Securities Account</th><td>{{ 'Yes' if input_data['Securities Account'] else 'No' }}</td></tr>
+                        <tr><th>CD Account</th><td>{{ 'Yes' if input_data['CD Account'] else 'No' }}</td></tr>
+                        <tr><th>Online Banking</th><td>{{ 'Yes' if input_data.Online else 'No' }}</td></tr>
+                        <tr><th>Credit Card</th><td>{{ 'Yes' if input_data.CreditCard else 'No' }}</td></tr>
+                    </tbody>
+                </table>
+                
+                <div class="mt-3">
+                    <a href="{{ url_for('predict') }}" class="btn btn-primary">New Prediction</a>
+                    <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

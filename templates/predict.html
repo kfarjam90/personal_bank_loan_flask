@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Single Customer Prediction</h1>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('predict') }}" onsubmit="return validateForm()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age" name="age" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="experience">Experience (years)</label>
+                            <input type="number" step="0.1" class="form-control" id="experience" name="experience" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="income">Income ($000)</label>
+                            <input type="number" step="0.1" class="form-control" id="income" name="income" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="zip_code">ZIP Code</label>
+                            <input type="number" class="form-control" id="zip_code" name="zip_code" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="family">Family Size</label>
+                            <select class="form-control" id="family" name="family" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="ccavg">Monthly Credit Card Spending ($000)</label>
+                            <input type="number" step="0.01" class="form-control" id="ccavg" name="ccavg" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="education">Education Level</label>
+                            <select class="form-control" id="education" name="education" required>
+                                <option value="1">Undergraduate</option>
+                                <option value="2">Graduate</option>
+                                <option value="3">Advanced/Professional</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="mortgage">Mortgage Value ($000)</label>
+                            <input type="number" step="0.1" class="form-control" id="mortgage" name="mortgage" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="securities_account">Securities Account</label>
+                            <select class="form-control" id="securities_account" name="securities_account" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cd_account">CD Account</label>
+                            <select class="form-control" id="cd_account" name="cd_account" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="online">Online Banking</label>
+                            <select class="form-control" id="online" name="online" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="creditcard">Credit Card</label>
+                        <select class="form-control" id="creditcard" name="creditcard" required>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="predict-btn">Predict</button>
+                    <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function validateForm() {
+        console.log("Form submitted");
+        const btn = document.getElementById('predict-btn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+        return true;
+    }
+</script>
+</html>

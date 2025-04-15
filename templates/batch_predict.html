@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Batch Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Batch Prediction</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('batch_predict') }}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">Upload Customer Data (CSV or Excel)</label>
+                        <input type="file" class="form-control-file" id="file" name="file" required>
+                        <small class="form-text text-muted">
+                            File must contain these columns: Age, Experience, Income, ZIP Code, Family, 
+                            CCAvg, Education, Mortgage, Securities Account, CD Account, Online, CreditCard
+                        </small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload and Predict</button>
+                    <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>File Format Example:</h5>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Age</th>
+                            <th>Experience</th>
+                            <th>Income</th>
+                            <th>ZIP Code</th>
+                            <th>Family</th>
+                            <th>CCAvg</th>
+                            <th>Education</th>
+                            <th>Mortgage</th>
+                            <th>Securities Account</th>
+                            <th>CD Account</th>
+                            <th>Online</th>
+                            <th>CreditCard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>42</td>
+                            <td>15</td>
+                            <td>100</td>
+                            <td>92037</td>
+                            <td>2</td>
+                            <td>2.5</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" class="btn btn-outline-primary">Download Template</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->

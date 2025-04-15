@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Loan Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Personal Loan Prediction System</h1>
+        <div class="card">
+            <div class="card-body">
+                <h2>Welcome to the Personal Loan Prediction System</h2>
+                <p>This application predicts whether a customer will accept a personal loan offer based on their financial profile.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Single Prediction</h5>
+                                <p class="card-text">Enter details for one customer to get a prediction.</p>
+                                <a href="{{ url_for('predict') }}" class="btn btn-primary">Go to Single Prediction</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <!-- <div class="card-body">
+                                <h5 class="card-title">Batch Prediction</h5>
+                                <p class="card-text">Upload a file with multiple customers to get predictions.</p>
+                                <a href="{{ url_for('batch_predict') }}" class="btn btn-primary">Go to Batch Prediction</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
