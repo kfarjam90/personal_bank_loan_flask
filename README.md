@@ -3,7 +3,7 @@
 ## 📌 Overview
 
 
-In this project, we aim to develop a classification model for predicting personal loan acceptance using the Thera-Bank dataset. Most Thera-Bank customers are depositors, with a relatively small segment being borrowers (asset customers). The bank seeks to grow this borrower base to boost its loan business and increase interest revenue. Specifically, management is focused on converting liability customers into retail loan customers without losing them as depositors.
+In this project, we aim to develop a classification model for predicting personal loan acceptance using the Thera-Bank dataset. Most Bank customers are depositors, with a relatively small segment being borrowers (asset customers). The bank seeks to grow this borrower base to boost its loan business and increase interest revenue. Specifically, management is focused on converting liability customers into retail loan customers without losing them as depositors.
 
 ## 🚀 Problem
 
