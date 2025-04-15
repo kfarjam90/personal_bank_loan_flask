@@ -1,4 +1,4 @@
-# 🛍️ imbalanced_personal_bank_loan_classification
+# 🛍️ imbalanced personal bank_loan classification
 
 ## 📌 Overview
 
